@@ -4,3 +4,6 @@ brew install yarn
 npm install -g yarn
 yarn global add serve 
 serve ./front
+
+./node_modules/.bin/webpack -c ./webpack.config.js
+webpack ./index.js ./dist/bundle.js

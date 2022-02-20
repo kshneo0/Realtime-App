@@ -1,0 +1,1 @@
+(()=>{var r={289:r=>{r.exports=function(r){alert(r)}}},e={};!function t(o){var n=e[o];if(void 0!==n)return n.exports;var a=e[o]={exports:{}};return r[o](a,a.exports,t),a.exports}(289)("Heres and alert")})();
