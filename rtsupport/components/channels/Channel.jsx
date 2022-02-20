@@ -21,4 +21,4 @@ Channel.propTypes = {
   setChannel: React.PropTypes.func.isRequired,
 };
 
-export default Channel
+export default Channel;
