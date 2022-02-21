@@ -9,6 +9,8 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
+type Handler func(*Client, interface{})
+
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
@@ -16,6 +18,17 @@ var upgrader = websocket.Upgrader{
 }
 
 type Router struct {
+	rules map[string]Handler
+}
+
+func NewRouter() *Router{
+	return &Router{
+		rules: make(map[string]Handler),
+	}
+}
+
+func (r *Router) Handle(msgName string, handler func()) {
+	r.rules[msgName] = handler
 }
 
 func (e *Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
