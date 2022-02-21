@@ -33,7 +33,6 @@ class ChannelForm extends React.Component {
   }
   onSubmit(e) {
     let { channelName } = this.state;
-    console.log(channelName);
     this.setState({ channelName: "" });
     this.props.addChannel(channelName);
     e.preventDefault();

@@ -4,7 +4,7 @@ class Channel extends React.Component {
   onClick(e) {
     e.preventDefault();
     const { setChannel, channel } = this.props;
-    setChannel(Channel);
+    setChannel(channel);
   }
   render() {
     const { channel, activeChannel } = this.props;
