@@ -9,7 +9,7 @@ class MessageSection extends Component {
       <div className="messages-container panel panel-default">
         <div className="panel-heading">
           <strong>
-            {activeChannel ? activeChannel.name : "Select A Channel"}
+            {activeChannel.name ? activeChannel.name : "Select A Channel"}
           </strong>
         </div>
         <div className="panel-body messages">
