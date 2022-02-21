@@ -1,7 +1,6 @@
-import { Socket } from "dgram";
 import { EventEmitter } from "events";
 
-class socket {
+class Socket {
   constructor(ws = new WebSocket(), ee = new EventEmitter()) {
     this.ws = ws;
     this.ee = ee;
