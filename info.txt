@@ -52,3 +52,54 @@ ws.onmessage = (e) => {
 }
 
 --------------------------------------------------------------
+
+let ws = new WebSocket('ws://localhost:4000');
+
+let message = {
+  name: 'channel add',
+  data: {
+    name: 'Hardware Support'
+  }
+}
+
+ws.onopen = () => {
+  ws.send(JSON.stringify(message));
+}
+
+ws.onmessage = (e) => {
+  console.log(JSON.parse(e.data));
+}
+
+--------------------------------------------------------------
+
+brew update && brew install rethinkdb
+
+rethinkdb
+
+
+r.dbCreate('rtsupport')
+r.db('rtsupport').tableCreate('channel')
+r.db('rtsupport').tableCreate('message')
+r.db('rtsupport').tableCreate('user')
+r.db('rtsupport').tableList()
+r.db('rtsupport').table('channel').insert({name:'Hardware support'})
+r.db('rtsupport').table('channel')
+r.db('rtsupport').table('channel').indexCreate('name')
+r.db('rtsupport').table('user').insert({name:'anonymous'})
+r.db('rtsupport').table('user')
+r.db('rtsupport').table('user').get('24460011-0926-4d46-8415-cbae6efd465b').update({name: 'James'})
+r.db('rtsupport').table('user').indexCreate('name')
+
+r.db('rtsupport').table('message').insert({author:'James', createdAt:r.now(), body:'I need some help...', channelId: 'b38632e6-881f-420a-b57f-24b2d03f6467' })
+
+r.db('rtsupport').table('channel')
+r.db('rtsupport').table('message').indexCreate('createdAt')
+r.db('rtsupport').table('message').indexCreate('channelId')
+
+r.db('rtsupport').table('user').get('24460011-0926-4d46-8415-cbae6efd465b').delete()
+
+
+r.db('rtsupport').table('channel').changes({includeInitial:true})
+r.db('rtsupport').table('channel').insert({name:'Software support'})
+r.db('rtsupport').table('channel').get('93ac2f4c-f20f-4ed9-9117-b8a3be20c972').update({name:'Critical Software support'})
+r.db('rtsupport').table('channel').get('93ac2f4c-f20f-4ed9-9117-b8a3be20c972').delete()
