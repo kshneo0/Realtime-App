@@ -9,3 +9,46 @@ serve ./front
 webpack ./index.js ./dist/bundle.js
 
 https://codesandbox.io/s/r3uu5
+
+
+// websocket test
+
+https://jsbin.com/gokubicoxu/edit?js,console
+
+--------------------------------------------------------------
+let msg = {
+  name: 'channel add',
+  data: {
+    name: 'Hardware Support'
+  }
+}
+let ws = new WebSocket('ws://localhost:4000');
+
+ws.onopen = () => {
+  ws.send(JSON.stringify(msg));
+}
+
+--------------------------------------------------------------
+
+let msg = {
+  name: 'channel add',
+  data: {
+    name: 'Hardware Support'
+  }
+}
+let subMsg = {
+  name: 'channel subscribe'
+}
+
+let ws = new WebSocket('ws://localhost:4000');
+
+ws.onopen = () => {
+  ws.send(JSON.stringify(subMsg));
+  ws.send(JSON.stringify(msg));
+}
+
+ws.onmessage = (e) => {
+  console.log(e.data);
+}
+
+--------------------------------------------------------------
