@@ -11,7 +11,9 @@ class ChannelList extends Component {
               <Channel
                 channel={chan}
                 key={chan.id}
-                setChannel={this.props.setChannel}
+                // setChannel={this.props.setChannel}
+                // activeChannel={this.props.activeChannel}
+                {...this.props}
               />
             );
           })}
@@ -23,6 +25,7 @@ class ChannelList extends Component {
 // ChannelList.propType = {
 //   channels: React.PropTypes.object.isRequired,
 //   setChannel: React.PropTypes.func.isRequired,
+//   activeChannel: React.PropTypes.object.isRequired.
 // };
 
 export default ChannelList;
