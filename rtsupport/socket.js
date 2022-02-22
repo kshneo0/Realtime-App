@@ -16,7 +16,7 @@ class Socket {
   }
   emit(name, data) {
     const message = JSON.stringify({ name, data });
-    this.ws.send(messgae);
+    this.ws.send(message);
   }
   message(e) {
     try {
