@@ -76,7 +76,7 @@ class App extends Component {
     this.socket.emit("message subscribe", { channelId: activeChannel.id });
   }
   setUserName(name) {
-    this.socket.emit("user eidt", { name });
+    this.socket.emit("user edit", { name });
   }
   addMessage(body) {
     let { activeChannel } = this.state;

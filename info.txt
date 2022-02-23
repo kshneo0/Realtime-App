@@ -103,3 +103,11 @@ r.db('rtsupport').table('channel').changes({includeInitial:true})
 r.db('rtsupport').table('channel').insert({name:'Software support'})
 r.db('rtsupport').table('channel').get('93ac2f4c-f20f-4ed9-9117-b8a3be20c972').update({name:'Critical Software support'})
 r.db('rtsupport').table('channel').get('93ac2f4c-f20f-4ed9-9117-b8a3be20c972').delete()
+
+
+
+---------------------------------------------------------------------------------------
+
+http://github.com/knowthen/rtsupportclient
+http://github.com/knowthen/rtsupportserver
+
