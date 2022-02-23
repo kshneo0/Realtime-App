@@ -52,6 +52,13 @@ func (client *Client) Write() {
 	client.socket.Close()
 }
 
+func (c *Client) Close() {
+	for _, ch := range c.stopChannels {
+		ch <- true
+	}
+	close(c.send)
+}
+
 func NewClient(socket *websocket.Conn, findHandler FindHandler, session *r.Session) *Client {
 	return &Client{
 		send:         make(chan Message),
